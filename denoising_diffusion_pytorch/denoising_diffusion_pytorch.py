@@ -772,7 +772,7 @@ class Trainer(object):
         self.ds = Dataset(folder, self.image_size, augment_horizontal_flip = augment_horizontal_flip, convert_image_to = convert_image_to)
         # dl = DataLoader(self.ds, batch_size = train_batch_size, shuffle = True, pin_memory = True, num_workers = cpu_count())
         dl = DataLoader(self.ds, batch_size = train_batch_size, shuffle = True,
-                pin_memory = True, num_workers = 0)
+                pin_memory = False, num_workers = 0)
 
         dl = self.accelerator.prepare(dl)
         self.dl = cycle(dl)
